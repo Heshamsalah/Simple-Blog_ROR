@@ -95,6 +95,10 @@ a {
 	}
 }
 
+.alert{
+	color: red;
+}
+
 .clearfix:after {
    content: ".";
    visibility: hidden;
@@ -128,13 +132,13 @@ a {
 	}
 	.post_wrapper {
 		padding: 3em;
-		border-bottom: 1px solid #d6dce0;
+		border: 1px solid #d6dce0;
 		.title {
 			margin: 0;
 			a {
 				font-weight: 500;
 				text-decoration: none;
-				color: #2a2f35;
+				color: green;
 				font-size: 1.5em;
 				&:hover {
 					color: #33acb7;
@@ -144,6 +148,7 @@ a {
 		.date_and_author {
 			color: #9eafba;
 			margin: .5em 0 0 0;
+			font-size: 1em;
 		}
 	}
 	#post_content {
@@ -158,9 +163,11 @@ a {
 		.body {
 			font-size: 1.1em;
 			line-height: 1.75;
+			margin-left: 10px;
+			width: 700px;
 		}
 		.date_and_author {
-			color: #9eafba;
+			color: yellow;
 			margin: .5em 0 2em 0;
 		}
 		#comments {

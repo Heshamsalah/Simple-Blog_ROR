@@ -3,11 +3,17 @@
   <h2 class="title">
     <%= link_to post.title, post %>
   </h2>
-  <p class="date">
-    <%= post.created_at.strftime("%B %d %Y") %>
+  <p class="date_and_author">
+    <%= post.created_at.strftime("%B %d %Y") %> | Created By: <%= post.user_id %>
   </p>
   <p class="body">
     <%= post.body %>
+    <hr>
+    <p>
+      Tags: <% post.tag_list.each do |tag| %>
+              <strong style="color: blue;"><%= link_to tag, "#" %></strong>
+            <% end %>
+    </p>
   </p>
 </div>
 
