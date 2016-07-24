@@ -12,7 +12,8 @@
   </p>
 
   <p class="body">
-    <%= @post.body %>
+    <%= simple_format @post.body %>
+    <%= image_tag @post.picture.url if @post.picture? %>
   </p>
 
   <hr>

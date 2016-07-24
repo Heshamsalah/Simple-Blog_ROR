@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160723101124) do
+ActiveRecord::Schema.define(version: 20160724121055) do
 
   create_table "ar_internal_metadata", primary_key: "key", force: :cascade do |t|
     t.string   "value"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20160723101124) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.string   "picture"
   end
 
   add_index "posts", ["user_id"], name: "index_posts_on_user_id"

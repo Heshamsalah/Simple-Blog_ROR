@@ -16,6 +16,7 @@
 
     <p class="body">
       <%= simple_format post.body %>
+      <%= image_tag post.picture.url if post.picture? %>
       <hr>
       <!-- get_post_tags(post) is a PostsHelper method that retrieve a tag list and put them into links -->
       Tags: <strong style="color: blue;"><%= get_post_tags(post) %></strong>

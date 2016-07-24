@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   end
   root "posts#index"
   get '/about', to: 'pages#about'
-  #get 'tags/:tag', to: 'posts#index', as: :tag
+  get 'feed', to: 'feeds#rss', format: 'rss'
 end

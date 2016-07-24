@@ -6,9 +6,9 @@ class PostsController < ApplicationController
     #This if statement is used to handle filtering by Tags, Useremail(Author), or Tilte
     if params[:tag] #this one is for tag filtering
       @posts = Post.tagged_with(params[:tag]).order("created_at DESC")
-    elsif params[:search]
+    elsif params[:search] #this one is for title search keywords
       @posts = Post.where(title: params[:search].upcase)
-    elsif params[:user_email]
+    elsif params[:user_email] #this one is for finding user email related to the post to retrieve all his posts
       user_id = User.find_by(email: params[:user_email]).id
       @posts = Post.where(user_id: user_id)
     else
@@ -24,7 +24,6 @@ class PostsController < ApplicationController
   end
 
   def create
-
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     @post.title = @post.title.upcase
@@ -53,7 +52,7 @@ class PostsController < ApplicationController
 
   private
     def post_params
-      params.require(:post).permit(:title, :body, :tag_list)
+      params.require(:post).permit(:title, :body, :tag_list, :picture)
     end
 
     def get_post
