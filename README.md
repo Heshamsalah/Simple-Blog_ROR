@@ -4,6 +4,8 @@ A simple blog built with ROR
 # Rails Version => 4.2.5
 # Ruby Version => 2.2.4
 
+the Blog live on heroku: http://simpleblog-hesham.herokuapp.com/
+
 Features:
 
   - Blog entries are posted in reverse­chronological order.
