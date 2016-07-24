@@ -1,20 +1,24 @@
 <% @posts.each do |post| %>
-<div class="post_wrapper">
-  <h2 class="title">
-    <%= link_to post.title, post %>
-  </h2>
-  <p class="date_and_author">
-    <%= post.created_at.strftime("%B %d %Y") %> | Created By: <%= post.user_id %>
-  </p>
-  <p class="body">
-    <%= post.body %>
-    <hr>
-    <p>
-      Tags: <% post.tag_list.each do |tag| %>
-              <strong style="color: blue;"><%= link_to tag, "#" %></strong>
-            <% end %>
-    </p>
-  </p>
-</div>
+  <div class="post_wrapper">
+    <h2 class="title">
+      <%= link_to post.title, post %>
+    </h2>
 
+    <p class="date_and_author">
+      <%= post.created_at.strftime("%B %d %Y") %>
+      <!--
+        get_post_author(post) is a PostsHelper method that
+        retrieve the user_email that created this post
+        @parameters => post
+      -->
+      | Created By: <%= get_post_author(post) %>
+    </p>
+
+    <p class="body">
+      <%= simple_format post.body %>
+      <hr>
+      <!-- get_post_tags(post) is a PostsHelper method that retrieve a tag list and put them into links -->
+      Tags: <strong style="color: blue;"><%= get_post_tags(post) %></strong>
+    </p>
+  </div>
 <% end %>

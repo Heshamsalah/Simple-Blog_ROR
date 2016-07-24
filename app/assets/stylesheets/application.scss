@@ -30,7 +30,7 @@ a {
 }
 
 #sidebar {
-	width: 250px;
+	width: 200px;
 	position: fixed;
 	left: 0;
 	top: 0;
@@ -108,7 +108,7 @@ a {
 }
 
 #main_content {
-	margin-left: 250px;
+	margin-left: 200px;
 	#header {
 		padding: 1em 3em;
 		border-bottom: 1px solid #d6dce0;
@@ -130,7 +130,13 @@ a {
 			}
 		}
 	}
+	.searchbox{
+		background: #f5f7f9;
+		padding: 10px;
+		padding-top: 5px;
+	}
 	.post_wrapper {
+		background: #e2fcea;
 		padding: 3em;
 		border: 1px solid #d6dce0;
 		.title {
@@ -156,15 +162,17 @@ a {
 		.title {
 			font-weight: 500;
 			text-decoration: none;
-			color: #2a2f35;
+			color: green;
 			font-size: 2.5em;
 			margin-bottom: 0;
 		}
 		.body {
 			font-size: 1.1em;
 			line-height: 1.75;
-			margin-left: 10px;
+			//margin-left: 10px;
 			width: 700px;
+			background: lighten(green, 70%);
+			padding: 10px;
 		}
 		.date_and_author {
 			color: yellow;
@@ -190,14 +198,19 @@ a {
 				}
 				.comment_content {
 					float: left;
+					background: lighten(gray, 45%);
+					padding: 5px;
 					.comment_name {
-						margin: 1em 0 0 0;
-						font-size: 0.7em;
+						//margin: 1em 0 0 0;
+						font-size: 1.0em;
 						text-transform: uppercase;
 					}
 					.comment_body {
 						font-size: 1.2em;
-						margin: 0.2em 0 0 0;
+						//margin: 0.2em 0 0 0;
+						//padding: 2px;
+						padding-left: 10px;
+
 					}
 					.comment_time {
 						margin-top: 1.2em;
@@ -243,15 +256,15 @@ a {
 		margin: 2em 0;
 	}
 	input[type="text"], input[type="email"], input[type="password"], textarea {
-		width: 90%;
+		//width: 90%;
 		border: 1px solid #d6dce0;
 		border-radius: .35em;
 		margin-top: 10px;
 		padding: .5em 1em;
-		line-height: 1.75;
+		//line-height: 1.75;
 	}
 	input[type="text"] {
-		height: 35px;
+		//height: 35px;
 	}
 	textarea {
 		min-height: 180px;
@@ -261,9 +274,9 @@ a {
 		background: transparent;
 		border: 1px solid #d6dce0;
 		padding: .5em 1.5em;
-		font-size: 1.1em;
+		//font-size: 1.1em;
 		border-radius: 1.5em;
-		margin-left: .5em;
+		//margin-left: .5em;
 		&:hover {
 			border: 1px solid #33acb7;
 			color: #33acb7;

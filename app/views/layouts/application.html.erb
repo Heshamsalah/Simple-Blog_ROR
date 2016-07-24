@@ -7,7 +7,9 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
+
 <body>
+  <!-- Page Sidebar -->
   <div id="sidebar">
     <div id="logo">
       <%= link_to root_path do %>
@@ -21,37 +23,46 @@
     </ul>
     <ul>
       <li class="category">Social</li>
-      <li> Test </li>
+      <li> <a href="https://eg.linkedin.com/in/heshamsalahuldeen">Hesham Salah</a> </li>
     </ul>
-    <!-- <p class="sign_in">
-      Admin Login
-    </p> -->
   </div>
+
   <div id="main_content">
     <div id="header">
+      <!-- Check if you are in the home page -->
       <% if current_page?(root_path) %>
-        <p>All Posts</p>
+        All Posts
       <% elsif current_page?(about_path) %>
         <p>About</p>
       <% else %>
         <%= link_to "Back to home page", root_path %>
       <% end %>
+
       <% if user_signed_in? %>
-        <div class="buttons">
-          <button class="button"><%= link_to "New Post", new_post_path %></button>
-          <button class="button"><%= link_to "Logout", destroy_user_session_path, method: :delete %></button>
-        </div>
+          <button class="buttons button"><%= link_to "New Post", new_post_path %></button>
+          <button class="buttons button"><%= link_to "Logout", destroy_user_session_path, method: :delete %></button>
       <% else %>
-        <div class="buttons">
-          <button class="button"><%= link_to "Signin", new_user_session_path %></button>
-        </div>
+          <button class="buttons button"><%= link_to "Signin", new_user_session_path %></button>
+          <button class="buttons button"><%= link_to "Signup", new_user_registration_path %></button>
       <% end %>
     </div>
-    <div class="">
-      <% flash.each do |name, msg| %>
-        <%= content_tag(:div, msg, class: "alert") %>
-      <% end %>
-    </div>
+
+    <% if current_page?(root_path) %>
+      <div class="searchbox">
+        <!-- A search box for filtering by title -->
+        <%= form_tag(posts_path, method: 'get')  do %>
+          <%= text_field_tag :search, nil, placeholder: "Enter Post Title..."%>
+          <%= submit_tag "Search", name: nil, class: "button" %>
+        <% end %>
+      </div>
+    <% end %>
+
+    <!-- Error Messages Display -->
+    <% flash.each do |name, msg| %>
+      <%= content_tag(:div, msg, class: "#{name}") %>
+    <% end %>
+
+    <!-- Main Content -->
     <%= yield %>
   </div>
 </body>

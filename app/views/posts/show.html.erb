@@ -2,11 +2,12 @@
   <h1 class="title">
     <%= @post.title %>
   </h1>
+
   <p class="date">
     Created At: <%= time_ago_in_words(@post.created_at) %> ago.
     <% if user_signed_in? %>
-      | <%= link_to "Edit", edit_post_path(@post) %>
-      | <%= link_to "Delete", post_path(@post), method: :delete, data: {confirm: "Are you sure?"}%>
+      | <strong style="color: green;"><%= link_to "Edit", edit_post_path(@post) %></strong>
+      | <strong style="color: red;"><%= link_to "Delete", post_path(@post), method: :delete, data: {confirm: "Are you sure?"}%></strong>
     <% end %>
   </p>
 
@@ -14,7 +15,10 @@
     <%= @post.body %>
   </p>
 
-
+  <hr>
+  <p>
+    Tags: <strong style="color: blue;"><%= get_post_tags(@post) %></strong>
+  </p>
   <div id="comments">
     <h2><%= @post.comments.count %> comments</h2>
     <%= render @post.comments %>
