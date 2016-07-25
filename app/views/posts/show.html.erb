@@ -5,9 +5,14 @@
 
   <p class="date">
     Created At: <%= time_ago_in_words(@post.created_at) %> ago.
-    <% if user_signed_in? %>
-      | <strong style="color: green;"><%= link_to "Edit", edit_post_path(@post) %></strong>
-      | <strong style="color: red;"><%= link_to "Delete", post_path(@post), method: :delete, data: {confirm: "Are you sure?"}%></strong>
+    <% if user_signed_in? && current_user.id == @post.user_id %>
+      | <strong style="color: green;">
+        <%= link_to "Edit", edit_post_path(@post) %>
+        </strong>
+      | <strong style="color: red;">
+        <%= link_to "Delete", post_path(@post), method: :delete,
+            data: {confirm: "Are you sure?"}%>
+        </strong>
     <% end %>
   </p>
 

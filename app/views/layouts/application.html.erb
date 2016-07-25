@@ -18,6 +18,9 @@
       <% end %>
     </div>
     <ul>
+      <% if user_signed_in? %>
+      <li>Welcome, <%= current_user.email.split('@')[0] %></li>
+      <% end %>
       <li class="category">Website</li>
       <li><%= link_to "Blog", root_path %></li>
       <li><%= link_to "About", about_path %></li>
@@ -40,11 +43,19 @@
       <% end %>
 
       <% if user_signed_in? %>
-          <button class="buttons button"><%= link_to "New Post", new_post_path %></button>
-          <button class="buttons button"><%= link_to "Logout", destroy_user_session_path, method: :delete %></button>
+          <button class="buttons button">
+            <%= link_to "New Post", new_post_path %>
+          </button>
+          <button class="buttons button">
+            <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+          </button>
       <% else %>
-          <button class="buttons button"><%= link_to "Signin", new_user_session_path %></button>
-          <button class="buttons button"><%= link_to "Signup", new_user_registration_path %></button>
+          <button class="buttons button">
+            <%= link_to "Signin", new_user_session_path %>
+          </button>
+          <button class="buttons button">
+            <%= link_to "Signup", new_user_registration_path %>
+          </button>
       <% end %>
     </div>
 
