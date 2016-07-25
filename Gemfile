@@ -32,7 +32,8 @@ gem 'acts-as-taggable-on'
 #to handle image uploads
 gem 'carrierwave',             '0.11.2'
 gem 'mini_magick',             '4.5.1'
-gem 'fog',                     '1.38.0'
+gem 'fog-aws', '<= 0.1.1', require: false
+gem 'fog', require: "fog/aws/storage"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
